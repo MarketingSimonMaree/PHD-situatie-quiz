@@ -1,0 +1,203 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  max-height: 60px; /* pas aan naar gewenste hoogte */
+  width: auto;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Veranderd van center naar flex-start */
+  padding-top: 10vh; /* 10% van viewport height vanaf bovenkant */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 350px));
+  gap: 40px; /* Meer ruimte tussen cards */
+  width: 95%;
+  max-width: 1400px;
+  margin: 60px auto 0; /* Meer ruimte onder titel */
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.card h2 {
+  background: #d69949;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+  min-height: 53px; /* vaste hoogte voor alle titels */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 34px;
+}
+
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 70%;
+  max-width: 800px;
+  position: relative;
+  animation: modalFadeIn 0.3s;
+  text-align: center; /* Centreert alle tekst */
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.modal-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+
+.modal-button.primary {
+  background: #d69949;
+  color: white;
+}
+
+.modal-button.secondary {
+  background: white;
+  color: #d69949;
+  border: 2px solid #d69949;
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+}
+
+.modal-button:active {
+  transform: translateY(0);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zorg dat de text in de modal er netjes uitziet */
+.modal-content h2 {
+  margin-bottom: 30px; /* meer ruimte onder titel */
+  font-size: 32px; /* grotere titel */
+  color: #333;
+  font-weight: 600;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.modal-content p {
+  line-height: 1.8; /* meer regelafstand */
+  color: #666;
+  font-size: 18px; /* grotere tekst */
+  margin-bottom: 40px; /* meer ruimte onder tekst */
+  max-width: 600px; /* tekst niet te breed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Voor extra grote schermen */
+@media (min-width: 1600px) {
+  .grid {
+    gap: 40px;
+    max-width: 1600px;
+  }
+}
+
+/* Voor kleinere schermen */
+@media (max-width: 768px) {
+  .grid {
+    gap: 20px;
+  }
+  .container {
+    padding: 20px;
+  }
+}
